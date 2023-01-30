@@ -11,8 +11,21 @@
 
 <script>
 
-     let userName = prompt('Введите ваше имя');
-    alert(`Hello, ${userName}! How are you?`);
+    let name = prompt('Введите ваше имя');
+    let surname = prompt('Введите вашу фамилию');
+    let patronymic = prompt('Введите ваше отчество');
+    alert(`Вы: ${name} ${surname} ${patronymic}`);
+    // alert('Вы: ' + name + ' ' + surname + ' ' + patronymic);
+
+    let numbers = prompt('Введите 5-ти значное число');
+    let result = '';
+
+    for (let char of numbers) {
+        result += char + ' ';
+    }
+
+    console.log(result.trim());
+
 
 </script>
 </body>
