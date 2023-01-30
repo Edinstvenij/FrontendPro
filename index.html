@@ -11,21 +11,29 @@
 
 <script>
 
+    // task 1
     let name = prompt('Введите ваше имя');
     let surname = prompt('Введите вашу фамилию');
     let patronymic = prompt('Введите ваше отчество');
+    // example 1
     alert(`Вы: ${name} ${surname} ${patronymic}`);
+    
+    // example 2
     // alert('Вы: ' + name + ' ' + surname + ' ' + patronymic);
 
-    let numbers = prompt('Введите 5-ти значное число');
-    let result = '';
 
+    // task 2
+    let numbers = prompt('Введите 5-ти значное число');
+
+    // example 1
+    let result = '';
     for (let char of numbers) {
         result += char + ' ';
     }
-
     console.log(result.trim());
 
+    // example 2
+    // console.log(numbers.split('').join(' '));
 
 </script>
 </body>
