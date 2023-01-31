@@ -11,57 +11,21 @@
 
 <script>
 
-    let yearOfBirth = prompt('Введите год рождение');
-    let city = prompt('Введите ваш город');
-    const hobby = prompt('Введите ваш любимый вид спорта');
+    let numOrStr = prompt('input number or string');
+    console.log(numOrStr)
 
-
-    const greetings = validateAge(yearOfBirth) + validateCity(city) + validateHobby(hobby);
-    alert(greetings);
-
-
-    function validateAge(yearOfBirth) {
-        if (!yearOfBirth) {
-            return 'Жаль, что Ви не захотели вводить свой возраст \n'
-        }
-
-        const date = new Date();
-        const age = date.getFullYear() - yearOfBirth;
-        return `Тебе ${age} лет.\n`
-    }
-
-    function validateCity(city) {
-        if (!city) {
-            return 'Жаль, что Ви не захотели вводить свой город \n';
-        }
-
-        switch (city) {
-            case 'Київ':
-                return 'Ти живешь в столице Украины\n';
-            case 'Вашингтон':
-                return 'Ти живешь в столице США\n';
-            case 'Лондон':
-                return 'Ти живешь в столице Великобритании\n';
-            default:
-                return `Ты живешь в городе ${city}\n`;
-        }
-    }
-
-    function validateHobby(hobby) {
-        if (!hobby) {
-            return 'Жаль, что Ви не захотели вводить свой вид спорта \n';
-        }
-
-        switch (hobby) {
-            case 'Футбол':
-                return 'Круто! Хочешь стать Меси?\n';
-            case 'Баскетбол':
-                return 'Круто! Хочешь стать Майком Джорданом?\n';
-            case 'Тенис':
-                return 'Круто! Хочешь стать Елиной Светолиной?\n';
-            default:
-                return `Ты живешь в городе ${hobby}\n`;
-        }
+    switch (true) {
+        case (numOrStr === null):
+            console.log('ви скасували');
+            break;
+        case (numOrStr.trim() === ''):
+            console.log('Empty String');
+            break;
+        case (isNaN(+numOrStr)):
+            console.log('number is Ba_NaN');
+            break;
+        default:
+            console.log('OK!')
     }
 
 </script>
