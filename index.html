@@ -11,29 +11,58 @@
 
 <script>
 
-    // task 1
-    let name = prompt('Введите ваше имя');
-    let surname = prompt('Введите вашу фамилию');
-    let patronymic = prompt('Введите ваше отчество');
-    // example 1
-    alert(`Вы: ${name} ${surname} ${patronymic}`);
-    
-    // example 2
-    // alert('Вы: ' + name + ' ' + surname + ' ' + patronymic);
+    let yearOfBirth = prompt('Введите год рождение');
+    let city = prompt('Введите ваш город');
+    const hobby = prompt('Введите ваш любимый вид спорта');
 
 
-    // task 2
-    let numbers = prompt('Введите 5-ти значное число');
+    const greetings = validateAge(yearOfBirth) + validateCity(city) + validateHobby(hobby);
+    alert(greetings);
 
-    // example 1
-    let result = '';
-    for (let char of numbers) {
-        result += char + ' ';
+
+    function validateAge(yearOfBirth) {
+        if (!yearOfBirth) {
+            return 'Жаль, что Ви не захотели вводить свой возраст \n'
+        }
+
+        const date = new Date();
+        const age = date.getFullYear() - yearOfBirth;
+        return `Тебе ${age} лет.\n`
     }
-    console.log(result.trim());
 
-    // example 2
-    // console.log(numbers.split('').join(' '));
+    function validateCity(city) {
+        if (!city) {
+            return 'Жаль, что Ви не захотели вводить свой город \n';
+        }
+
+        switch (city) {
+            case 'Київ':
+                return 'Ти живешь в столице Украины\n';
+            case 'Вашингтон':
+                return 'Ти живешь в столице США\n';
+            case 'Лондон':
+                return 'Ти живешь в столице Великобритании\n';
+            default:
+                return `Ты живешь в городе ${city}\n`;
+        }
+    }
+
+    function validateHobby(hobby) {
+        if (!hobby) {
+            return 'Жаль, что Ви не захотели вводить свой вид спорта \n';
+        }
+
+        switch (hobby) {
+            case 'Футбол':
+                return 'Круто! Хочешь стать Меси?\n';
+            case 'Баскетбол':
+                return 'Круто! Хочешь стать Майком Джорданом?\n';
+            case 'Тенис':
+                return 'Круто! Хочешь стать Елиной Светолиной?\n';
+            default:
+                return `Ты живешь в городе ${hobby}\n`;
+        }
+    }
 
 </script>
 </body>
