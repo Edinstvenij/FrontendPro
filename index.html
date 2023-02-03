@@ -10,23 +10,52 @@
 <body>
 
 <script>
-
-    let numOrStr = prompt('input number or string');
-    console.log(numOrStr)
-
-    switch (true) {
-        case (numOrStr === null):
-            console.log('ви скасували');
-            break;
-        case (numOrStr.trim() === ''):
-            console.log('Empty String');
-            break;
-        case (isNaN(+numOrStr)):
-            console.log('number is Ba_NaN');
-            break;
-        default:
-            console.log('OK!')
+    // 1
+    for (let i = 20; i <= 30; i += 0.5) {
+        console.log(i);
     }
+    console.log('---------');
+
+    // 2
+    for (let i = 10, exchange = 27; i <= 100; i += 10) {
+        console.log(i * exchange);
+    }
+    console.log('---------');
+
+    // 3
+    for (let i = 1, n = 900; i < 100; i++) {
+        if (i ** 2 > n) {
+            break;
+        }
+        console.log(i);
+    }
+    console.log('---------');
+
+    // 4
+    let number = Math.floor(Math.random() * 13);
+    let isPrime = true;
+    console.log(`${number} рандомное число`);
+
+    for (let i = 2; i < number; i++) {
+        if (number % i === 0) {
+            isPrime = false;
+            break;
+        }
+    }
+
+    if (isPrime) {
+        console.log(`${number} простое число`);
+    }
+    console.log('---------');
+
+
+    // 5
+    if (number % 3 === 0) {
+        console.log(`${number}  можна одержати шляхом зведення числа 3 у деякий ступінь.`)
+    } else {
+        console.log(`${number} HE можна одержати шляхом зведення числа 3 у деякий ступінь.`)
+    }
+
 
 </script>
 </body>
