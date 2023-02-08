@@ -67,7 +67,7 @@
         }
     ]
 
-    console.log(getArrayTel(users));
+    // console.log(getArrayTel(users));
     console.log(sumTotal(users));
 
     function getArrayTel(array) {
@@ -81,11 +81,18 @@
     }
 
     function sumTotal(array) {
-        let sum = 0;
+
+        let sum1 = array.reduce((accumulator, user) => accumulator + toInteger(user.balance), 0);
+
+        let sum2 = 0;
         for (let item of array) {
-            sum += toInteger(item.balance);
+            sum2 += toInteger(item.balance);
         }
-        return +sum.toFixed(2);
+
+        return [
+            +sum1.toFixed(2),
+            +sum2.toFixed(2)
+        ];
     }
 
     function toInteger(number) {
