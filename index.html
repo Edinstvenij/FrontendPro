@@ -10,41 +10,19 @@
 <body>
 <script>
 
-    //  1
-    const array = [1, 2, 3, 4, 5, 6, 7];
-    console.log(removeElement(array, 3));
+    function initSum() {
+        let result = 0;
 
-    function removeElement(array, item) {
-        return array.filter(el => el !== item);
-    }
-
-    //  2
-    const arrayMix = [10, true, 20, 'stri', [], {}, '30'];
-    console.log(getMeanSumArray(arrayMix)); // 20
-    function getMeanSumArray(array) {
-        let sum = 0;
-        let count = 0;
-
-        for (const item of array) {
-            if (isNaN(+item) || +item === 0 || item === true) continue;
-
-            sum += +item;
-            count++;
+        return function (number) {
+            return result += number;
         }
-        return sum / count;
     }
 
-    //  3
-    const string = 'Hi my friends. Are you OK?';
-    console.log(getStrHiddenSign(string, ['a', 'i', 'A', '\\.', '\\?']));
+    const sum = initSum();
 
-    function getStrHiddenSign(string, array) {
-        for (const item of array) {
-            let reg = new RegExp(`${item}`, 'g');
-            string = string.replace(reg, '',)
-        }
-        return string;
-    }
+    console.log(sum(3));
+    console.log(sum(5));
+    console.log(sum(20));
 
 </script>
 </body>
