@@ -10,19 +10,23 @@
 <body>
 <script>
 
-    function initSum() {
-        let result = 0;
-
-        return function (number) {
-            return result += number;
+    let ladder = {
+        step: 0,
+        up: function () {
+            this.step++;
+            return this;
+        },
+        down: function () {
+            this.step--;
+            return this;
+        },
+        showStep: function () { // показывает текущую ступеньку
+            alert(this.step);
+            return this;
         }
-    }
+    };
 
-    const sum = initSum();
-
-    console.log(sum(3));
-    console.log(sum(5));
-    console.log(sum(20));
+    ladder.up().up().down().showStep(); // 1
 
 </script>
 </body>
