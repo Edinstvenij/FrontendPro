@@ -10,23 +10,11 @@
 <body>
 <script>
 
-    let ladder = {
-        step: 0,
-        up: function () {
-            this.step++;
-            return this;
-        },
-        down: function () {
-            this.step--;
-            return this;
-        },
-        showStep: function () { // показывает текущую ступеньку
-            alert(this.step);
-            return this;
-        }
-    };
+    function pow(num, degree) {
+        return degree <= 1 ? num : num * pow(num, --degree);
+    }
 
-    ladder.up().up().down().showStep(); // 1
+    console.log(pow(8, 3));
 
 </script>
 </body>
