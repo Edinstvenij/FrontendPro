@@ -9,28 +9,21 @@
 </head>
 <body>
 
-<form class="js--form">
-    <input type="text">
-    <button type="submit">Проверить</button>
-</form>
-
+<button class="js--btn">Написать ссылку</button>
 <a class="js--link" href="#">Перейти по ссылке</a>
 
 <script>
 
-    let _form = document.querySelector('.js--form');
-    let _input = _form.querySelector('input');
+    let _btn = document.querySelector('.js--btn');
     let _link = document.querySelector('.js--link');
 
-    _form.addEventListener('submit', e => {
-            e.preventDefault();
+    _btn.addEventListener('click', e => {
 
-            let inputLink = _input.value;
+            let inputLink = prompt('Введите ссылку');
 
             if (!inputLink.includes('https://') && !inputLink.includes('http://')) {
                 inputLink = 'https://' + inputLink;
             }
-
 
             _link.setAttribute('href', inputLink);
         }
