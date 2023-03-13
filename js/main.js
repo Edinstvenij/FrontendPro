@@ -40,8 +40,51 @@ function Tasks(_formInput, _todosWrapper) {
     }
 }
 
-const task = new Tasks(
-    '.js--form__input',
-    '.js--todos-wrapper',
-);
+const task = new Tasks('.js--form__input', '.js--todos-wrapper',);
 document.querySelector('.js--form').addEventListener('submit', task.addItem);
+
+
+const images = ['0.png', '1.png', '2.png', '3.png', '4.png', '5.png',];
+
+
+function Slider(images) {
+    let indexImages = 0;
+    this.addSlider = event => {
+        const _target = event.target;
+        const _slider = _target.closest('.slider');
+        const _btnPrev = _slider.querySelector('.slider__prev');
+        const _btnNext = _slider.querySelector('.slider__next');
+        switch (_target) {
+            case _btnNext:
+                indexImages = (indexImages + 1) % images.length;
+                this.updateImage(_slider);
+                break;
+
+            case _btnPrev:
+                indexImages = (indexImages - 1 + images.length) % images.length;
+                this.updateImage(_slider);
+                break;
+        }
+
+        if (indexImages === 0) {
+            _btnPrev.classList.add('hidden');
+        } else {
+            _btnPrev.classList.remove('hidden');
+        }
+
+
+        if (indexImages === images.length - 1) {
+            _btnNext.classList.add('hidden');
+        } else {
+            _btnNext.classList.remove('hidden');
+        }
+    }
+
+    this.updateImage = function (_slider) {
+        _slider.querySelector('.slider__slide img').setAttribute('src', `img/${images[indexImages]}`);
+    }
+}
+
+const slider = new Slider(images);
+
+document.querySelector('.js--slider').addEventListener('click', slider.addSlider);

@@ -5,10 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style/main.css">
 </head>
 <body>
 <div class="container">
+    <div class="slider js--slider">
+        <div class="slider__content">
+            <div class="slider__slide">
+                <img src="img/0.png" alt="Pokemon">
+            </div>
+        </div>
+        <div class="slider__prev hidden"><</div>
+        <div class="slider__next 1 2 3">></div>
+    </div>
     <h1>ToDoList</h1>
     <form class="form js--form">
         <input type="text" name="value" required class="form__input js--form__input">
@@ -17,6 +26,6 @@
     <div class="js--todos-wrapper">
     </div>
 </div>
-<script src="main.js"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>

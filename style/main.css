@@ -53,17 +53,63 @@ h1, h2 {
     align-items: center;
     margin-bottom: 10px;
 }
+
 .todo-item--checked {
     text-decoration: line-through;
 }
+
 .todo-item__description {
     flex-grow: 1;
     padding-left: 10px;
 }
+
 .todo-item__delete {
     background: #0be69d;
     border: none;
     cursor: pointer;
     width: 95px;
     padding: 10px;
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.slider__content {
+    margin: 0 auto;
+}
+
+.slider__slide {
+    margin: 0 auto;
+}
+
+.slider__slide img {
+    object-fit: cover;
+    max-width: 475px;
+    max-height: 475px;
+}
+
+.slider__prev, .slider__next {
+    cursor: pointer;
+
+    width: 40px;
+    height: 40px;
+    color: #000000;
+    font-size: 30px;
+    position: absolute;
+    bottom: 0;
+}
+
+.slider__prev {
+    left: 0;
+}
+
+.slider__next {
+    right: 0;
+}
+
+.hidden {
+    display: none;
 }
