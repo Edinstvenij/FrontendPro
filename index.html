@@ -5,27 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
-    <div class="slider js--slider">
-        <div class="slider__content">
-            <div class="slider__slide">
-                <img src="img/0.png" alt="Pokemon">
-            </div>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Age</th>
+                <th>Action</th>
+            </thead>
+            <tbody class="js--content"></tbody>
+        </table>
+        <div class="card p-4">
+            <button class="js--add btn btn-add btn-primary">Add user</button>
         </div>
-        <div class="slider__prev hidden"><</div>
-        <div class="slider__next 1 2 3">></div>
+        <form class="js--form card card--user p-4">
+            <input type="hidden" name="id">
+            <input class="form-control mb-1" type="text" name="name" placeholder="Name" required>
+            <input class="form-control mb-1" type="text" name="phone" placeholder="Phone" required>
+            <input class="form-control mb-3" type="number" name="age" placeholder="Age" min="18" required>
+            <button class="btn btn-primary mb-2 w-100" type="submit">OK</button>
+        </form>
+        <code class="card p-4">
+            <pre class="js--user user-info">
+                { asd: 'asd' }
+            </pre>
+        </code>
     </div>
-    <h1>ToDoList</h1>
-    <form class="form js--form">
-        <input type="text" name="value" required class="form__input js--form__input">
-        <button class="form__btn">Добавить</button>
-    </form>
-    <div class="js--todos-wrapper">
-    </div>
-</div>
-<script src="/js/main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
