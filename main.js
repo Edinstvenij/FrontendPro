@@ -62,7 +62,7 @@ function UserTable({form, content, userInfo, addButton}) {
         } else {
             for (let i = 0; i < currentUsers.length; i++) {
                 if (currentUsers[i].id === userId) {
-                    currentUsers.splice(i, i);
+                    currentUsers.splice(i, 1);
                     localStorage.setItem('users', JSON.stringify(currentUsers))
                 }
             }
