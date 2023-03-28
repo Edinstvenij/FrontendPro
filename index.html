@@ -6,24 +6,25 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        .error {
+            border: 2px solid red;
+        }
+
+        .error-wrapper {
+            color: red;
+        }
+
+
+    </style>
 </head>
 <body>
-<ul class="gallery">
-    <li class="gallery__item js--gal_item"><img src="./img/1.jpg" alt=""></li>
-    <li class="gallery__item js--gal_item"><img src="./img/2.jpg" alt=""></li>
-    <li class="gallery__item js--gal_item"><img src="./img/3.jpeg" alt=""></li>
-    <li class="gallery__item js--gal_item"><img src="./img/4.jpg" alt=""></li>
-    <li class="gallery__item js--gal_item"><img src="./img/5.jpeg" alt=""></li>
-    <li class="gallery__item js--gal_item"><img src="./img/6.jpg" alt=""></li>
-</ul>
-<div class="modal js--modal">
-    <button class="modal__close js--modal__close">Close</button>
-    <button class="modal__prev js--modal__prev">Prev</button>
-    <div class="modal__content js--modal__content"><img src="./img/1.jpg" alt=""></div>
-    <button class="modal__next js--modal__next">Next</button>
-</div>
-<script src="/node_modules/jquery/dist/jquery.min.js"></script>
-<script src="index.js"></script>
+
+<form class="js--form" action="#" method="post">
+    <input type="password" name="password" placeholder="Введите пароль">
+    <button type="submit">Отправить</button>
+</form>
+
+<script src="js/index.js"></script>
 </body>
 </html>
