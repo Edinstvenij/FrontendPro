@@ -66,47 +66,45 @@ class Student {
 
 }
 
-
-document.addEventListener('DOMContentLoaded', function () {
-    const student1 = new Student('  Yura ', 'Vigovskyi  ', '05.02.2003');
-    for (let index = 0; index < student1.progress.length; index++) {
-        const randNum = Math.round(Math.random() * 4);
-        if (randNum) {
-            student1.scores.push(100)
-            student1.present();
-        } else {
-            student1.absent();
-        }
+// Test data
+const student1 = new Student('  Yura ', 'Vigovskyi  ', '05.02.2003');
+for (let index = 0; index < student1.progress.length; index++) {
+    const randNum = Math.round(Math.random() * 4);
+    if (randNum) {
+        student1.scores.push(100)
+        student1.present();
+    } else {
+        student1.absent();
     }
-    console.log(student1.summary());
-    // console.log(student1);
+}
+console.log(student1.summary());
+// console.log(student1);
 
 
-    const student2 = new Student('    Kolya', 'Ponchicov', '02.02.1999');
-    for (let index = 0; index < student2.progress.length; index++) {
-        const randNum = Math.round(Math.random());
-        if (randNum) {
-            student2.scores.push(Math.round(Math.random() * 100))
-            student2.present();
-        } else {
-            student2.absent();
-        }
+const student2 = new Student('    Kolya', 'Ponchicov', '02.02.1999');
+for (let index = 0; index < student2.progress.length; index++) {
+    const randNum = Math.round(Math.random());
+    if (randNum) {
+        student2.scores.push(Math.round(Math.random() * 100))
+        student2.present();
+    } else {
+        student2.absent();
     }
-    console.log(student2.summary());
-    // console.log(student2);
+}
+console.log(student2.summary());
+// console.log(student2);
 
 
-    const student3 = new Student('    Kolya', 'Ponchicov', '02.02.1999');
-    for (let index = 0; index < student3.progress.length; index++) {
-        const randNum = Math.round(Math.random());
-        if (randNum) {
-            student3.scores.push(Math.round(Math.random() * 60))
-            student3.present();
-        } else {
-            student3.absent();
-        }
+const student3 = new Student('    Kolya', 'Ponchicov', '02.02.1999');
+for (let index = 0; index < student3.progress.length; index++) {
+    const randNum = Math.round(Math.random());
+    if (randNum) {
+        student3.scores.push(Math.round(Math.random() * 60))
+        student3.present();
+    } else {
+        student3.absent();
     }
-    console.log(student3.summary());
-    // console.log(student3);
+}
+console.log(student3.summary());
+// console.log(student3);
 
-});
