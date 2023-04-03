@@ -1,114 +1,112 @@
+class Student {
+    constructor(firstName, lastName, birthday) {
+        this.firstName = firstName.trim();
+        this.lastName = lastName.trim();
+        this.birthday = new Date(birthday);
+        this.scores = [];
+        this.progress = new Array(25).fill(null);
+
+
+        this.fullName = `${this.firstName} ${this.lastName}`;
+    }
+
+
+    getAge() {
+        return new Date().getFullYear() - this.birthday.getFullYear();
+    }
+
+    getAverageScore() {
+        if (this.scores.length === 0) return 'Scores are null';
+
+        const averageScore = this.scores.reduce((a, b) => (a + b)) / this.scores.length;
+        return averageScore.toFixed(1);
+    }
+
+    getAverageProgress() {
+        const averageProgress = this.progress.reduce((a, b) => (a + b)) / this.progress.length;
+        return averageProgress.toFixed(1);
+    }
+
+    present() {
+        this.setDay(true);
+    }
+
+    absent() {
+        this.setDay(false);
+    }
+
+
+    summary() {
+        console.log();
+        const averageScore = this.getAverageScore();
+        const averageProgress = this.getAverageProgress();
+        if (averageScore >= 90 && averageProgress >= 0.9) {
+            return 'Well done!!!'
+        } else if (averageScore < 90 && averageScore >= 70 || averageProgress < 0.9 && averageProgress >= 0.5) {
+            return 'Good but can better!';
+        } else {
+            return 'Radish!';
+        }
+    }
+
+
+    setDay(presentOrAbsent) {
+        if (this.progress[this.progress.length - 1] !== null || typeof presentOrAbsent !== 'boolean') return;
+
+        let index = 0;
+        for (let day of this.progress) {
+            if (day === null) {
+                this.progress[index] = presentOrAbsent;
+                return true;
+            }
+
+            index++;
+        }
+    }
+
+}
+
+
 document.addEventListener('DOMContentLoaded', function () {
-
-    const _form = document.querySelector('.js--form');
-    _form.addEventListener('submit', checkPassword);
-
-    const _password = _form.querySelector('input[type="password"]');
-
-    function checkPassword(event) {
-        event.preventDefault();
-
-        checkHasNumber('Нет цифры');
-        checkHasBigLetter('Нет большой буквы');
-        checkHasSymbol('Нет спецсимвола')
-        checkMaxLengthString(8, 'Короткий пароль. Минимум N символов');
-    }
-
-    function checkHasBigLetter(errorText) {
-        const hasBigLetter = !!_password.value.match(/[A-Z]/);
-
-        if (hasBigLetter) {
-            _password.classList.remove('error');
-            removeError(_password, errorText);
+    const student1 = new Student('  Yura ', 'Vigovskyi  ', '05.02.2003');
+    for (let index = 0; index < student1.progress.length; index++) {
+        const randNum = Math.round(Math.random() * 4);
+        if (randNum) {
+            student1.scores.push(100)
+            student1.present();
         } else {
-            _password.classList.add('error');
-            showError(_password, errorText)
+            student1.absent();
         }
     }
+    console.log(student1.summary());
+    // console.log(student1);
 
-    function checkHasNumber(errorText) {
-        const hasNumber = !!_password.value.match(/[0-9]/);
 
-        if (hasNumber) {
-            _password.classList.remove('error');
-            removeError(_password, errorText);
+    const student2 = new Student('    Kolya', 'Ponchicov', '02.02.1999');
+    for (let index = 0; index < student2.progress.length; index++) {
+        const randNum = Math.round(Math.random());
+        if (randNum) {
+            student2.scores.push(Math.round(Math.random() * 100))
+            student2.present();
         } else {
-            _password.classList.add('error');
-            showError(_password, errorText)
+            student2.absent();
         }
     }
+    console.log(student2.summary());
+    // console.log(student2);
 
 
-    function checkHasSymbol(errorText) {
-        const hasSymbol = !!_password.value.match(/[!"#$%&'()*+,-.\/:;<=>?@[\]^_`{|}~]/);
-
-        if (hasSymbol) {
-            removeError(_password, errorText);
-            if (!_password.nextElementSibling.classList.contains('js--error-wrapper')) {
-                _password.classList.remove('error');
-            }
+    const student3 = new Student('    Kolya', 'Ponchicov', '02.02.1999');
+    for (let index = 0; index < student3.progress.length; index++) {
+        const randNum = Math.round(Math.random());
+        if (randNum) {
+            student3.scores.push(Math.round(Math.random() * 60))
+            student3.present();
         } else {
-            _password.classList.add('error');
-            showError(_password, errorText)
+            student3.absent();
         }
     }
+    console.log(student3.summary());
+    // console.log(student3);
 
-    function checkMaxLengthString(maxSymbol, errorText) {
-        const hasMaxSymbol = !!_password.value.match(/^\S{8,}$/);
-        errorText = errorText.replace('N', maxSymbol);
-
-        if (hasMaxSymbol) {
-            _password.classList.remove('error');
-            removeError(_password, errorText);
-        } else {
-            _password.classList.add('error');
-            showError(_password, errorText)
-        }
-    }
-
-    function showError(_item, message) {
-        const _errorWrapper = _item.nextElementSibling;
-
-        if (!_errorWrapper.classList.contains('js--error-wrapper')) {
-            const _errorWrapper = document.createElement('div');
-            _errorWrapper.classList.add('js--error-wrapper');
-            _errorWrapper.classList.add('error-wrapper');
-
-            const _error = document.createElement('div');
-            _errorWrapper.append(_error);
-            _error.innerHTML = message;
-
-            _password.insertAdjacentElement('afterend', _errorWrapper);
-        } else {
-            const errorsText = Array.from(_errorWrapper.children).map(_error => {
-                return _error.textContent
-            });
-
-            if (errorsText.includes(message) === false) {
-                const _error = document.createElement('div');
-                _errorWrapper.append(_error);
-                _error.innerHTML = message;
-            }
-        }
-    }
-
-    function removeError(_item, message) {
-        const _errorWrapper = _item.nextElementSibling;
-
-        if (_errorWrapper.children.length === 1) {
-            for (let i = 0, count = _errorWrapper.children.length; i < count; i++) {
-                if (_errorWrapper.children[i].textContent === message) {
-                    _errorWrapper.remove();
-                    return;
-                }
-            }
-        } else {
-            for (let i = 0, count = _errorWrapper.children.length; i < count; i++) {
-                if (_errorWrapper.children[i].textContent === message) {
-                    _errorWrapper.children[i].remove();
-                    return;
-                }
-            }
-        }
-    }
 });
