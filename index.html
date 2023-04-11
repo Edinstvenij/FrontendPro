@@ -9,26 +9,12 @@
     <title>HW20</title>
 </head>
 <body>
-<div class="container">
-    <form class="js--form form my-4" action="#">
-        <div class="form-floating">
-            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                <option value="0" selected>Open this select menu</option>
-                <option value="ODESSA">Odessa</option>
-                <option value="LVIV">Lviv</option>
-                <option value="DNIPRO">Dnipro</option>
-            </select>
-            <label for="floatingSelect">Choose city</label>
-        </div>
-    </form>
-    <div class="js--weather">
-        <h1 class="js--weather-city"></h1>
-        <span class="js--weather-description"></span>
-        <img class="js--weather-icon" src="" alt="weather">
+<div class="container my-2">
+    <label>
+        <input class="js--post-input-id" type="number" min="1" max="100">
+    </label>
 
-        <div class="js--weather-body">
-        </div>
-    </div>
+    <div class="js--posts"></div>
 </div>
 
 <script src="js/index.js"></script>

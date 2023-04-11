@@ -1,82 +1,74 @@
-const url = 'http://api.openweathermap.org/data/2.5/weather?q=DNIPRO&units=metric&APPID=5d066958a60d315387d9492393935c19';
+const _inputIdPost = document.querySelector('.js--post-input-id');
+const _postsWrapper = document.querySelector('.js--posts');
 
-const response = fetch(url);
-response.then(data => {
-    return data.json();
-})
-    .then(data => {
+_inputIdPost.addEventListener('input', event => {
+    const postId = event.target.value > 0 && event.target.value <= 100 ? event.target.value : false
 
-        document.querySelector('.js--form').addEventListener('input', (event) => {
+    if (postId) {
+        console.log(postId)
+        const url = 'https://jsonplaceholder.typicode.com/posts/' + postId;
 
-            if (event.target.value != 0) {
-                const searchParams = new URLSearchParams(url.split('?')[1]);
-                searchParams.set('q', event.target.value);
-                const newUrl = `${url.split('?')[0]}?${searchParams.toString()}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json);
+                const _newPost = document.createElement('div');
+                const _title = document.createElement('span');
+                const _body = document.createElement('div');
+                const _btnComment = document.createElement('btn');
 
-                const newResponse = fetch(newUrl);
-                newResponse.then(data => {
-                    return data.json();
-                }).then(data => {
-                    const city = data.name;
-                    const description = data.weather[0].description;
-                    const iconId = data.weather[0].icon;
+                _newPost.classList.add('my-4');
 
-                    const options = {
-                        temp: data.main.temp,
-                        tempMax: data.main.temp_max,
-                        tempMin: data.main.temp_min,
-                        pressure: data.main.pressure,
-                        speed: data.wind.speed,
-                        deg: data.wind.deg
-                    }
+                _title.classList.add('h6');
+                _title.innerText = json.title;
 
+                _body.innerText = json.body;
 
-                    _city.innerHTML = city;
-                    _description.innerHTML = description;
-                    showIcon(_icon, iconId);
-                    _weatherBody.innerHTML = showOptions(options).innerHTML;
-                })
+                _btnComment.innerText = 'Show comments';
+                _btnComment.classList.add('btn', 'btn-info', 'my-1');
+
+                _newPost.append(_title, _body, _btnComment);
+
+                _btnComment.addEventListener('click', () => showComments(url, _newPost));
+
+                while (_postsWrapper.children.length) {
+                    _postsWrapper.removeChild(_postsWrapper.firstChild)
+                }
+                _postsWrapper.appendChild(_newPost);
+            });
+    }
+});
+
+function showComments(url, _wrapper) {
+    const newCommentsPromise = getComments(url);
+
+    newCommentsPromise.then(_newComments => _wrapper.append(_newComments));
+}
+
+function getComments(url) {
+    const urlComment = url + '/comments';
+
+    return fetch(urlComment)
+        .then(response => response.json())
+        .then(json => {
+            const _newComments = document.createElement('div');
+            _newComments.innerText = 'Comments'
+
+            for (const comment of json) {
+                const _newComment = document.createElement('div');
+                const _name = document.createElement('div');
+                const _email = document.createElement('div');
+                const _body = document.createElement('div');
+
+                _newComment.classList.add('mb-4');
+                _name.innerText = comment.name;
+                _email.innerText = comment.email;
+                _body.innerText = comment.body;
+
+                _newComment.append(_name, _email, _body);
+                _newComments.append(_newComment);
             }
-        })
 
-        const _weatherWrapper = document.querySelector('.js--weather');
-        const _city = _weatherWrapper.querySelector('.js--weather-city');
-        const _description = _weatherWrapper.querySelector('.js--weather-description');
-        const _weatherBody = _weatherWrapper.querySelector('.js--weather-body');
-        const _icon = _weatherWrapper.querySelector('.js--weather-icon');
-
-        const city = data.name;
-        const description = data.weather[0].description;
-        const iconId = data.weather[0].icon;
-
-        const options = {
-            temp: data.main.temp,
-            tempMax: data.main.temp_max,
-            tempMin: data.main.temp_min,
-            pressure: data.main.pressure,
-            speed: data.wind.speed,
-            deg: data.wind.deg
-        }
-
-
-        _city.innerHTML = city;
-        _description.innerHTML = description;
-        showIcon(_icon, iconId);
-        _weatherBody.innerHTML = showOptions(options).innerHTML;
-
-        function showIcon(_icon, iconId) {
-            const urlIcon = 'https://openweathermap.org/img/w/'
-            _icon.setAttribute('src', urlIcon + iconId + '.png');
-        }
-
-        function showOptions(options) {
-            const _optionsItem = document.createElement('div');
-            for (let optionsKey in options) {
-                const _newItem = document.createElement('div');
-                _newItem.innerHTML = `${optionsKey} : ${options[optionsKey]}`;
-
-                _optionsItem.append(_newItem);
-            }
-            return _optionsItem
-        }
-    });
+            return _newComments;
+        });
+}
