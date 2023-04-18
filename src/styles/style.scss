@@ -9,20 +9,23 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+
+    &__item {
+        width: 280px;
+        height: 280px;
+        border: 1px solid orange;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+    }
+
+    &__item img {
+        width: 100%;
+        height: auto;
+    }
 }
-.gallery__item {
-    width: 280px;
-    height: 280px;
-    border: 1px solid orange;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-}
-.gallery__item img {
-    width: 100%;
-    height: auto;
-}
+
 .modal {
     display: none;
     position: absolute;

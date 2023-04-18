@@ -1,14 +1,37 @@
 {
   "name": "frontendpro",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "src/scripts/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp:js": "gulp js",
+    "gulp:css": "gulp css",
+    "gulp:watch": "gulp watch",
+    "gulp:build": "gulp build",
+    "gulp:img": "gulp img",
+    "gulp:clear": "gulp clear",
+    "gulp -v": "gulp -v",
+    "gulp": "gulp"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "jquery": "^3.6.4"
-  }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/register": "^7.21.0",
+    "del": "^6.1.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.62.0"
+  },
+  "keywords": [],
+  "description": ""
 }
