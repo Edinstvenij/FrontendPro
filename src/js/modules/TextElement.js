@@ -2,18 +2,10 @@ import {FormElement} from './FormElement.js'
 
 export class TextElement extends FormElement {
 
-    constructor({name, type, value, placeholder}) {
+    constructor({name, type, value = '', placeholder}) {
         super(name, type, value);
 
         this.placeholder = placeholder
-    }
-
-    showName() {
-        console.log(`Name: ${this.name}`);
-    }
-
-    getValue() {
-        return this.value;
     }
 
     getElement() {
@@ -21,7 +13,10 @@ export class TextElement extends FormElement {
         _newElement.placeholder = this.placeholder;
         _newElement.classList.add('form-control')
 
+        _newElement.name = this.name;
+        _newElement.type = this.type;
+        _newElement.value = this.value;
 
-        return this.fieldFilling(_newElement);
+        return (_newElement);
     }
 }

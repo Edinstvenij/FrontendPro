@@ -61,8 +61,12 @@ _form.addEventListener('submit', e => {
     e.preventDefault();
 
     const elements = document.querySelectorAll('input')
-    
+
     elements.forEach(_item => {
-        console.log(_item.value)
+        if (_item.type === 'checkbox') {
+            console.log(_item.checked)
+        } else {
+            console.log(_item.value)
+        }
     })
 })
