@@ -7,13 +7,16 @@
     align-items: center;
     margin-bottom: 10px;
 }
+
 .todo-item--checked {
     text-decoration: line-through;
 }
+
 .todo-item__description {
     flex-grow: 1;
     padding-left: 10px;
 }
+
 .todo-item__delete {
     background: #d50023;
     color: white;
@@ -30,4 +33,12 @@
     cursor: pointer;
     width: 95px;
     padding: 10px;
+}
+
+.todo-item__done {
+    opacity: 0.6;
+}
+
+.todo-item__done div {
+    text-decoration: line-through;
 }

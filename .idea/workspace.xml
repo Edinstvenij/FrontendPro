@@ -4,29 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cca6bd08-7f04-4fe7-9cef-62873bd5c091" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/src/ui/Component/ButtonResult.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/src/ui/Component/EmojiItem.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/src/ui/Component/Wrapper.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji-game/src/ui/Page/Main.jsx" beforeDir="false" />
+    <list default="true" id="cca6bd08-7f04-4fe7-9cef-62873bd5c091" name="Changes" comment="Finished DZ-29">
+      <change afterPath="$PROJECT_DIR$/src/ui/components/form/Checkbox.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/pages/ClassMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/components/TodoItem/TodoItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/components/TodoItem/TodoItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/components/TodoItem/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/components/TodoItem/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/components/form/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/components/form/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/components/form/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/components/form/Input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/containers/TodoForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/containers/TodoForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/pages/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/pages/Main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,22 +39,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "//wsl$/Ubuntu/home",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "application.passwordSafe",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yurav/www/web/FrontendPro/src/ui/pages&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;application.passwordSafe&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yurav\www\web\FrontendPro\src\ui\pages" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -73,11 +69,26 @@
       <option name="presentableId" value="Default" />
       <updated>1684602835521</updated>
       <workItem from="1684602837473" duration="215000" />
-      <workItem from="1684603112710" duration="1417000" />
+      <workItem from="1684603112710" duration="3952000" />
+      <workItem from="1684662268806" duration="7000" />
+      <workItem from="1684663928935" duration="1000" />
+      <workItem from="1684685152559" duration="2044000" />
     </task>
+    <task id="LOCAL-00001" summary="Finished DZ-29">
+      <created>1684604584999</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684604584999</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Finished DZ-29" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished DZ-29" />
   </component>
 </project>

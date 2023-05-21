@@ -4,19 +4,18 @@ import '../../main.css';
 import Input from "../components/form/Input";
 import Button from "../components/form/Button";
 
-class TodoForm extends React.Component {
-    render() {
-        const { handleAdd } = this.props;
-        return (
-            <form
-                className="form"
-                onSubmit={handleAdd}
-            >
-                <Input />
-                <Button text="Отправить" />
-            </form>
-        );
-    }
+function TodoForm(props) {
+    const handleAdd = props.handleAdd;
+
+    return (
+        <form
+            className="form"
+            onSubmit={handleAdd}
+        >
+            <Input/>
+            <Button text="Отправить"/>
+        </form>
+    );
 }
 
 export default TodoForm;
