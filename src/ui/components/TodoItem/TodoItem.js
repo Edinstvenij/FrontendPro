@@ -1,4 +1,3 @@
-import React from "react";
 // Parts
 import Button from "../form/Button";
 import Checkbox from "../form/Checkbox";

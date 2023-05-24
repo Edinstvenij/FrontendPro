@@ -2,11 +2,10 @@ import React, {useEffect, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../main.css';
 // Parts
-import Header from "../components/Header";
 import TodoItem from "../components/TodoItem/TodoItem";
 import TodoForm from "../containers/TodoForm";
 
-function ClassMain() {
+function Main() {
     const [items, setItems] = useState([]);
 
 
@@ -67,7 +66,7 @@ function ClassMain() {
 
     return (
         <div className="container">
-            <Header/>
+            <h1>ToDoList</h1>
             <TodoForm handleAdd={handleAdd}/>
             <div>
                 {items.map((item) => (
@@ -86,4 +85,4 @@ function ClassMain() {
     )
 }
 
-export default ClassMain;
+export default Main;

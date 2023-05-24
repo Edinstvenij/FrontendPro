@@ -1,5 +1,3 @@
-import React from "react";
-
 function Checkbox(props) {
     const {onChange, isChecked} = props;
     return (
