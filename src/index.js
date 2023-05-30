@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import {createBrowserRouter, RouterProvider,} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 //  Engine
 import ErrorBoundary from "./engine/ErrorBoundary";
 //  UI
@@ -9,18 +9,16 @@ import Main from './ui/pages/Main';
 import About from "./ui/pages/About";
 import Contact from "./ui/pages/Contact";
 
-const router = createBrowserRouter([{
-    path: '/', element: <Main/>
-}, {
-    path: '/about', element: <About/>
-}, {
-    path: '/contact', element: <Contact/>
-},])
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <ErrorBoundary>
-        <Header/>
-        <RouterProvider router={router}/>
+        <BrowserRouter>
+            <Header/>
+            <Routes>
+                <Route path='/' element={<Main/>}/>
+                <Route path='/about' element={<About/>}/>
+                <Route path='/contact' element={<Contact/>}/>
+            </Routes>
+        </BrowserRouter>
     </ErrorBoundary>
 );

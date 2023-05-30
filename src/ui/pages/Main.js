@@ -4,6 +4,8 @@ import '../../main.css';
 // Parts
 import TodoItem from "../components/TodoItem/TodoItem";
 import TodoForm from "../containers/TodoForm";
+//  Helpers
+import useFormField from "../../hooks/useFormField";
 
 function Main() {
     const [items, setItems] = useState([]);
@@ -14,13 +16,14 @@ function Main() {
         )
     }, []);
 
+    const inputState = useFormField('');
 
     function handleAdd(event) {
 
 
         event.preventDefault();
-        const input = event.target.getElementsByClassName('form__input')[0];
-        const text = input.value;
+        const [text, , setText] = inputState;
+
         const checked = false;
         const newItems = [
             ...items,
@@ -28,7 +31,7 @@ function Main() {
         ];
         setItems(newItems);
         localStorage.setItem('items', JSON.stringify(newItems));
-        input.value = '';
+        setText('');
     }
 
     function handleRemove(id) {
@@ -64,10 +67,11 @@ function Main() {
         setItems(newItems)
     }
 
+
     return (
         <div className="container">
             <h1>ToDoList</h1>
-            <TodoForm handleAdd={handleAdd}/>
+            <TodoForm inputState={inputState} handleAdd={handleAdd}/>
             <div>
                 {items.map((item) => (
                     <TodoItem

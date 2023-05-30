@@ -1,5 +1,6 @@
-function Input() {
-    return <input type="text" name="value" required className="form__input"/>
+function Input(props) {
+    const [value, onChange] = props.inputState
+    return <input className="form__input" type="text" name="value" value={value} onChange={onChange} required/>
 }
 
 export default Input;
