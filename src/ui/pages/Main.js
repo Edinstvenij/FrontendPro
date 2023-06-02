@@ -5,9 +5,9 @@ import '../../main.css';
 import TodoItem from "../components/TodoItem/TodoItem";
 import TodoForm from "../containers/TodoForm";
 //  Helpers
-import useFormField from "../../hooks/useFormField";
+import {Form} from "react-final-form";
 
-function Main() {
+const Main = () => {
     const [items, setItems] = useState([]);
 
 
@@ -16,14 +16,8 @@ function Main() {
         )
     }, []);
 
-    const inputState = useFormField('');
-
-    function handleAdd(event) {
-
-
-        event.preventDefault();
-        const [text, , setText] = inputState;
-
+    function handleAdd(data) {
+        const {text} = data;
         const checked = false;
         const newItems = [
             ...items,
@@ -31,7 +25,6 @@ function Main() {
         ];
         setItems(newItems);
         localStorage.setItem('items', JSON.stringify(newItems));
-        setText('');
     }
 
     function handleRemove(id) {
@@ -71,7 +64,11 @@ function Main() {
     return (
         <div className="container">
             <h1>ToDoList</h1>
-            <TodoForm inputState={inputState} handleAdd={handleAdd}/>
+            <Form
+                onSubmit={handleAdd}
+                render={TodoForm}
+            />
+
             <div>
                 {items.map((item) => (
                     <TodoItem

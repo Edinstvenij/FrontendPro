@@ -20,28 +20,3 @@ h1, h2 {
     margin: 0 auto;
     max-width: 75%;
 }
-
-.form {
-    background: #fff;
-    padding: 10px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    display: flex;
-    justify-content: center;
-}
-
-.form__input {
-    min-height: 25px;
-    padding: 10px;
-    width: 100%;
-    border: 1px solid;
-    margin-right: 5px;
-}
-
-.form__btn {
-    background: #0be69d;
-    border: none;
-    cursor: pointer;
-    width: 100px;
-    padding: 5px;
-}

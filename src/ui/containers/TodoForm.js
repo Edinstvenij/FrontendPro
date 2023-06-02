@@ -1,18 +1,21 @@
 import React from "react";
-import '../../main.css';
+import styles from './todoForm.module.css';
 // Parts
+import {Field} from 'react-final-form';
 import Input from "../components/form/Input";
 import Button from "../components/form/Button";
+//  Helpers
+import {composeValidators, isRequired, isMin5Char} from '../components/form/helpers/Validate'
 
-function TodoForm(props) {
-    const {handleAdd, inputState} = props;
+const TodoForm = props => {
+    const {handleSubmit} = props;
 
     return (
         <form
-            className="form"
-            onSubmit={handleAdd}
+            className={styles.form}
+            onSubmit={handleSubmit}
         >
-            <Input inputState={inputState}/>
+            <Field name={'text'} component={Input} validate={composeValidators(isRequired, isMin5Char)}/>
             <Button text="Отправить"/>
         </form>
     );
