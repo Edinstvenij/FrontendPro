@@ -7,22 +7,22 @@ import {Form} from "react-final-form";
 import TodoItem from "../components/TodoItem/TodoItem";
 import TodoForm from "../containers/TodoForm";
 //  Engine
-import {updateItems} from '../../engine/core/todos/todosSlice';
-import {handleAddTodo, handleRemoveTodo} from "../../engine/core/todos/thunks";
+import {handleAddTodo} from "../../engine/core/todos/thunks";
+import asyncActions from "../../engine/core/todos/saga/asyncActions";
 
 const App = () => {
     const dispatch = useDispatch();
     const items = useSelector((state) => state.todos.items);
 
     useEffect(() => {
-        dispatch(updateItems(JSON.parse(localStorage.getItem('items'))))
+        dispatch(asyncActions.getTodosAsync());
     }, []);
 
     const handleAdd = (data) => {
-        dispatch(handleAddTodo(data))
+        dispatch(asyncActions.addTodoAsync({items, data}))
     }
     const handleRemove = (id) => {
-        dispatch(handleRemoveTodo(id))
+        dispatch(asyncActions.deleteTodoAsync({id, items}))
     }
 
     return (
